@@ -5,7 +5,6 @@ import os
 
 class ResponseChunker:
     def __init__(self):
-        self.temp_files = {}
         self.MAX_RESPONSE_SIZE = 50000
         self.MAX_CHUNK_SIZE = 30000
 
@@ -23,15 +22,10 @@ class ResponseChunker:
         with open(temp_file, 'w') as f:
             f.write(response_json)
         
-        self.temp_files[file_id] = {
-            'file_path': temp_file,
-            'total_size': len(response_json),
-            'chunks_read': 0
-        }
-        
         return {
             'type': 'large_response',
             'file_id': file_id,
+            'file_path': temp_file,
             'total_size': len(response_json),
             'summary': self._create_summary(response_data),
             'message': f"READ ALL CHUNKS!!!. Response too large ({len(response_json)} chars). Use read_response_chunk tool with file_id '{file_id}' to read in chunks. \

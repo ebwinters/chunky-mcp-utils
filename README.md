@@ -29,6 +29,10 @@ def my_tool() -> list[types.TextContent]:
     result = handle_large_response(response_data, "my_tool", chunker)
 ```
 
+## Build + Publish
+1. `python -m build`
+2. `twine upload dist/* `
+
 ## License
 
 MIT

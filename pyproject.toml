@@ -3,7 +3,7 @@ dependencies = [
     "mcp[cli]>=1.9.4"
 ]
 name = "chunky-mcp-utils"
-version = "0.1.0"
+version = "0.1.1"
 description = "Utilities for handling large responses in chunky-mcp tools"
 authors = [{ name="Ethan Winters", email="ebwinters@comcast.net" }]
 readme = "README.md"
